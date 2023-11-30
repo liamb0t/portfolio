@@ -1,6 +1,6 @@
 <script setup>
 import ProjectCard from '../components/ProjectCard.vue';
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import bibimhakIcon from '../assets/icons/bibimhak.png'
 import aocIcon from '../assets/icons/aoc.jpeg'
 import gametheoryIcon from '../assets/icons/game-theory.png'
@@ -14,7 +14,7 @@ const projects = ref([
     projectUrl: 'https://bibimhak.com',
     imageUrl: bibimhakIcon,
   },
-  {
+  { 
     id: 2,
     title: 'Reddit Soccer Highlights',
     description: 'A Vue.js frontend for watching soccer highlights from Reddit',
@@ -43,15 +43,28 @@ const projects = ref([
     imageUrl: aocIcon,
   },
 ])
+
+const isMounted = ref(false);
+
+onMounted(() => {
+  isMounted.value = true;
+});
+
+onBeforeUnmount(() => {
+  isMounted.value = false;
+})
+
 </script>
 
 <template>
-  <div class="projects">
-    <h1>Some projects and stuff I've made</h1>
-    <div class="project-grid">
-      <ProjectCard v-for="project in projects" :key="project.id" :project="project"/>
+  <transition name="fade">
+    <div v-show="isMounted" class="projects">
+      <h1>Some projects and stuff I've made</h1>
+      <div class="project-grid">
+        <ProjectCard v-for="project in projects" :key="project.id" :project="project"/>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <style scoped>
@@ -65,5 +78,15 @@ const projects = ref([
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px; /* Adjust the gap according to your design */
+}
+/* transition code */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
 }
 </style>
