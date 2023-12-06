@@ -13,7 +13,7 @@ const props = defineProps({
 
 onMounted(() => {
   const client = new XMLHttpRequest();
-  const path = `/src/blogs/${props.title}.md`
+  const path = `/blog/${props.title}.md`
   client.open('GET', path);
   client.onreadystatechange = function() {
     console.log(client.responseText)
