@@ -1,16 +1,25 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import picture from './assets/icons/profile-pic4.jpg'
 </script>
 
 <template>
   <div class="wrapper">
   <header>
-    <nav>
-      <RouterLink to="/">Projects</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <a href="https://github.com/liamb0t" target="_blank">Github</a>
-      <RouterLink to="/contact">Contact</RouterLink>
-    </nav>
+    <RouterLink to="/">
+      <div class="img-container">
+        <img :src="picture" alt="">
+      </div>
+    </RouterLink>
+    <div class="flex">
+      <h1 class="name">LIAM MCLAUGHLIN</h1>
+      <nav>
+        <RouterLink to="/">Projects</RouterLink>
+        <RouterLink :to="{ name: 'blog' }">Blog</RouterLink>
+        <a href="https://github.com/liamb0t" target="_blank">Github</a>
+        <RouterLink to="/contact">About</RouterLink>
+      </nav>
+    </div>
   </header>
   <RouterView />
 </div>
@@ -20,18 +29,41 @@ import { RouterLink, RouterView } from 'vue-router'
 header {
   line-height: 1.5;
   max-height: 100vh;
+  margin-bottom: 2rem;
 }
-
-.logo {
+.img-container {
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  overflow: hidden;
+  border-radius: 50%;
+    
+}
+img {
   display: block;
-  margin: 0 auto 2rem;
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 4rem;
+  transform: scale(1.2);
+  top: -3rem;
 }
-
 nav {
   width: 100%;
-  font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 600;
+  width: fit-content;
+  border-bottom: 4px solid rgb(0, 244, 53);
 }
 
 nav a.router-link-exact-active {
@@ -46,6 +78,8 @@ nav a {
   display: inline-block;
   padding: 0 1rem;
   border-left: 1px solid var(--color-border);
+  font-weight: 500;
+  font-size: 1.5rem;
 }
 
 nav a:first-of-type {
