@@ -1,8 +1,8 @@
 <script setup>
 import { marked } from "marked";
-import { defineProps, watchEffect, ref, onMounted } from "vue";
+import { defineProps, ref, onMounted } from "vue";
 
-const content = ref('')
+const content = ref('');
 
 const props = defineProps({
   title: {
@@ -11,18 +11,20 @@ const props = defineProps({
   },
 });
 
-onMounted(() => {
-  const client = new XMLHttpRequest();
-  const path = `/${props.title}.md`
-  client.open('GET', path);
-  client.onreadystatechange = function() {
-    console.log(client.responseText)
-    console.log(client)
-    content.value = marked(client.responseText)
-  }
-  client.send();
-});
+onMounted(async () => {
+  try {
+    const response = await fetch(`/blog/${props.title}.md`);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch ${props.title}.md`);
+    }
 
+    const text = await response.text();
+    content.value = marked(text);
+  } catch (error) {
+    console.error(error);
+  }
+});
 </script>
 
 <template>
