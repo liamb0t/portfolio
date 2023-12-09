@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import picture from './assets/icons/profile-pic4.jpg'
+import picture from './assets/icons/profile-pic.jpg'
 </script>
 
 <template>
@@ -47,7 +47,7 @@ img {
   object-fit: cover;
   border-radius: 50%;
   margin-right: 4rem;
-  transform: scale(1.2);
+  transform: scale(1.33);
   top: -3rem;
 }
 nav {
