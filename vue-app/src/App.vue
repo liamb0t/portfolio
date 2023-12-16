@@ -64,7 +64,7 @@ nav {
 .name {
   font-weight: 600;
   width: fit-content;
-  border-bottom: 4px solid rgb(0, 244, 53);
+  border-bottom: 4px solid rgb(225 35 35);
 }
 
 nav a.router-link-exact-active {

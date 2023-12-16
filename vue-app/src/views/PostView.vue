@@ -11,15 +11,16 @@ const props = defineProps({
   },
 });
 
-onMounted(async () => {
-  try {
-    const response = await fetch(`blog/${props.title}.md`);
-
-    const text = await response.text();
-    content.value = marked(text);
-  } catch (error) {
-    console.error(error);
+onMounted(() => {
+  const client = new XMLHttpRequest();
+  const path = `/src/blogs/${props.title}.md`
+  client.open('GET', path);
+  client.onreadystatechange = function() {
+    console.log(client.responseText)
+    console.log(client)
+    content.value = marked(client.responseText)
   }
+  client.send();
 });
 </script>
 
