@@ -13,11 +13,7 @@ const props = defineProps({
 
 onMounted(async () => {
   try {
-    const response = await fetch(`/blog/${props.title}.md`);
-    
-    if (!response.ok) {
-      throw new Error(`Failed to fetch ${props.title}.md`);
-    }
+    const response = await fetch(`blog/${props.title}.md`);
 
     const text = await response.text();
     content.value = marked(text);
