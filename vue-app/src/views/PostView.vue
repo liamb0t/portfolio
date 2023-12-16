@@ -20,7 +20,9 @@ onMounted(async () => {
     }
 
     const markdown = await response.text();
+    console.log(markdown)
     content.value = marked(markdown);
+    console.log(content.value)
   } catch (error) {
     console.error(error);
   }
