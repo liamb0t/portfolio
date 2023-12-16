@@ -1,6 +1,6 @@
 <script setup>
-import { marked } from "marked";
-import { defineProps, ref, onMounted } from "vue";
+import { marked } from 'marked';
+import { defineProps, ref, onMounted } from 'vue';
 
 const content = ref('');
 
@@ -11,16 +11,19 @@ const props = defineProps({
   },
 });
 
-onMounted(() => {
-  const client = new XMLHttpRequest();
-  const path = `/src/blogs/${props.title}.md`
-  client.open('GET', path);
-  client.onreadystatechange = function() {
-    console.log(client.responseText)
-    console.log(client)
-    content.value = marked(client.responseText)
+onMounted(async () => {
+  try {
+    const response = await fetch(`/src/blogs/${props.title}.md`);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch Markdown content for ${props.title}`);
+    }
+
+    const markdown = await response.text();
+    content.value = marked(markdown);
+  } catch (error) {
+    console.error(error);
   }
-  client.send();
 });
 </script>
 
