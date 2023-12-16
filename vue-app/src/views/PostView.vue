@@ -13,7 +13,7 @@ const props = defineProps({
 
 onMounted(async () => {
   try {
-    const response = await fetch(`/src/blogs/${props.title}.md`);
+    const response = await fetch(`/blogs/${props.title}.md`);
     
     if (!response.ok) {
       throw new Error(`Failed to fetch Markdown content for ${props.title}`);
