@@ -20,9 +20,7 @@ onMounted(async () => {
     }
 
     const markdown = await response.text();
-    console.log(markdown)
     content.value = marked(markdown);
-    console.log(content.value)
   } catch (error) {
     console.error(error);
   }
@@ -30,5 +28,69 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-html="content"></div>
+  <div class="loader-container" v-show="!content">
+    <span class="loader"></span>
+    LOADING
+  </div>
+  <transition name="fade">
+    <div v-show="content" v-html="content"></div>
+  </transition>
 </template>
+
+<style scoped>
+.loader-container {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column  ;
+}
+.loader {
+  width: 5rem;
+  height: 5rem;
+  border: 2px solid #838383;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin-bottom: 1rem;
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #FF3D00;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.loader::before {
+  left: auto;
+  top: auto;
+  right: 0;
+  bottom: 0;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+/* transition code */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
+}
+</style>

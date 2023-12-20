@@ -1,6 +1,9 @@
-# Lorem Ipsum
+# Bibimhak - a filesharing and community platform for ESL teachers in South Korea
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+bi·bim·bap
+/ˈbēbimˌbäp/
+noun
+a Korean dish consisting of rice topped with sautéed vegetables, chili paste, and beef or other meat, sometimes with the addition of a raw or fried egg.
 
 ## Section 1
 

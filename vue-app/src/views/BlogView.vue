@@ -2,12 +2,11 @@
 import PostCard from '../components/PostCard.vue';
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-
 const posts = ref([
   {
-    id: 'AoC-2023-day1',
-    title: 'Solutions to AoC part 1 and 2',
-    description: 'A trickier first day than last years day 1',
+    id: 'bibimhak',
+    title: 'Bibimhak - creating a filesharing community for ESL teachers in South Korea',
+    date: 'Tuesday, 19 December 2023',
     imageUrl: null,
   },
 ])
