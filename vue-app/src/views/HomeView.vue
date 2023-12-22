@@ -32,14 +32,14 @@ const projects = ref([
     id: 4,
     title: 'Advent of Code 2023',
     description: 'Solutions to AoC 2023 in Typescript',
-    projectUrl: '/aoc/2023',
+    projectUrl: 'https://github.com/liamb0t/Advent-of-Code-2023',
     imageUrl: aocIcon,
   },
   {
     id: 5,
     title: 'Advent of Code 2022',
     description: 'Solutions to AoC 2022 in Python',
-    projectUrl: '/aoc/2022',
+    projectUrl: 'https://github.com/liamb0t/Advent-of-Code-2022',
     imageUrl: aocIcon,
   },
 ])

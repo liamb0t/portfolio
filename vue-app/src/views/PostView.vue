@@ -30,14 +30,19 @@ onMounted(async () => {
 <template>
   <div class="loader-container" v-show="!content">
     <span class="loader"></span>
-    LOADING
+    <span class="loader-text">Loading</span>
   </div>
   <transition name="fade">
-    <div v-show="content" v-html="content"></div>
+    <div class="post-container" v-show="content" v-html="content"></div>
   </transition>
 </template>
 
 <style scoped>
+.post-container {
+  max-width: 50rem;
+}
+
+
 .loader-container {
   height: 50vh;
   display: flex;
@@ -46,15 +51,15 @@ onMounted(async () => {
   flex-direction: column  ;
 }
 .loader {
-  width: 5rem;
-  height: 5rem;
+  width: 10rem;
+  height: 10rem;
   border: 2px solid #838383;
   border-radius: 50%;
   display: inline-block;
   position: relative;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .loader::after,
 .loader::before {
@@ -83,6 +88,11 @@ onMounted(async () => {
     transform: rotate(360deg);
   }
 } 
+
+.loader-text {
+  font-size: large;
+  font-weight: 600;
+}
 /* transition code */
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s ease;

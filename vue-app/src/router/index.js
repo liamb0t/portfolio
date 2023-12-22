@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import ContactView from '../views/ContactView.vue'
-import AdventsView from '../views/AdventsView.vue'
 import BlogView from '../views/BlogView.vue'
 import PostView from '../views/PostView.vue'
 
@@ -34,13 +33,6 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: ContactView
-    },
-   
-    {
-      path: '/aoc/:year',
-      name: 'advents',
-      component: AdventsView,
-      props: true
     },
   ]
 })
