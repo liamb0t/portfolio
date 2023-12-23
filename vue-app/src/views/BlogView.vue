@@ -1,6 +1,6 @@
 <script setup>
 import PostCard from '../components/PostCard.vue';
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted } from 'vue';
 import { marked } from 'marked';
 
 const posts = ref([]);
@@ -8,7 +8,7 @@ const posts = ref([]);
 onMounted(async () => {
  
   try {
-    const files = ['bibimhak.md', 'game-theory-visualizer.md', 'soccer-highlights.md']; 
+    const files = ['bibimhak.md', 'game-theory-visualizer.md']; 
 
     // Fetch content for each file and convert it to a post object
     const postPromises = files.map(async (file) => {
