@@ -1,7 +1,9 @@
 # Bibimhak - a filesharing and community platform for ESL teachers in South Korea
 
 bi·bim·bap
+
 /ˈbēbimˌbäp/
+
 noun
 a Korean dish consisting of rice topped with sautéed vegetables, chili paste, and beef or other meat, sometimes with the addition of a raw or fried egg.
 

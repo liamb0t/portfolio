@@ -19,7 +19,7 @@ const props = defineProps({
     <div class="content"
         v-html="post.content
         .split(`\n`)
-        .slice(2, 7)
+        .slice(1, 5)
         .join('\n')">
     </div>
     <RouterLink class="open-post-btn" :to="{ name: 'post', params: { title: post.id }}">

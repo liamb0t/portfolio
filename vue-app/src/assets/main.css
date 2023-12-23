@@ -10,7 +10,7 @@
 a,
 .green {
   text-decoration: none;
-  color: rgb(176, 45, 45);
+  color: var(--color-text);
   transition: 0.4s;
 }
 
