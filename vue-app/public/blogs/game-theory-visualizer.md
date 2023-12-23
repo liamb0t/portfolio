@@ -94,36 +94,3 @@ So now agents colors will change smoothly and we've got some cool hover effects 
 Very simple solution but it makes our grid appear much more dynamic and gives the illusion that the agents are actually moving about and interacting with each other!
 
 That pretty much takes care of the grid side of things, there's alot more I could have done here but I was satisfied with it how it looked as is. So now lets move on to the where the real fun begins: adding some parameters the user can adjust while running a simulation! Again there are infinite things one could do here but the main things I
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <style>
-    /* Your preferred code styling */
-    p code {
-      background-color: #f4f4f4;
-      color: #333;
-      padding: 2px 5px;
-      border-radius: 3px;
-    }
-    
-    /* Specific styling for different languages or code blocks */
-    pre {
-        padding: 2rem;
-        font-size: 12px;
-        background-color: gainsboro
-    }
-
-  </style>
-
